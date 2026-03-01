@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\SessionController;
 use Illuminate\Support\Facades\Route;
 
@@ -25,3 +26,8 @@ Route::get('/dashboard', function () {
 Route::get('/admin-only', function () {
     return 'Halaman khusus Admin';
 })->middleware(['auth', 'userAkses:admin']);
+
+
+Route::middleware(['auth', 'userAkses:admin,staf'])->group(function () {
+    Route::resource('categories', CategoryController::class);
+});
