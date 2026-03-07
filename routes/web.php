@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\ItemController;
 use App\Http\Controllers\SessionController;
 use Illuminate\Support\Facades\Route;
 
@@ -30,4 +31,5 @@ Route::get('/admin-only', function () {
 
 Route::middleware(['auth', 'userAkses:admin,staf'])->group(function () {
     Route::resource('categories', CategoryController::class);
+    Route::resource('items', ItemController::class);
 });
