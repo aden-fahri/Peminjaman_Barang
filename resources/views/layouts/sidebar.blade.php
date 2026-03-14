@@ -12,6 +12,7 @@
   <div class="navbar-collapse w-auto max-height-vh-100 h-100" id="sidenav-collapse-main">
     <ul class="navbar-nav">
       
+      {{-- Dashboard - untuk semua role --}}
       <li class="nav-item">
         <a class="nav-link {{ request()->routeIs('dashboard') ? 'active' : '' }}" href="{{ route('dashboard') }}">
           <div class="icon icon-shape icon-sm shadow border-radius-md text-center me-2 d-flex align-items-center justify-content-center {{ request()->routeIs('dashboard') ? 'bg-gradient-primary' : 'bg-white' }}">
@@ -21,32 +22,50 @@
         </a>
       </li>
 
-      <li class="nav-item">
-        <a class="nav-link {{ request()->routeIs('categories.*') ? 'active' : '' }}" href="{{ route('categories.index') }}">
-          <div class="icon icon-shape icon-sm shadow border-radius-md text-center me-2 d-flex align-items-center justify-content-center {{ request()->routeIs('categories.*') ? 'bg-gradient-primary' : 'bg-white' }}">
-            <i class="fas fa-tags {{ request()->routeIs('categories.*') ? 'text-white' : 'text-dark' }} text-xs"></i>
-          </div>
-          <span class="nav-link-text ms-1">Kategori</span>
-        </a>
-      </li>
+      {{-- Kategori & Barang - HANYA untuk admin & staf --}}
+      @if(in_array(Auth::user()->role, ['admin', 'staf']))
+        <li class="nav-item">
+          <a class="nav-link {{ request()->routeIs('categories.*') ? 'active' : '' }}" href="{{ route('categories.index') }}">
+            <div class="icon icon-shape icon-sm shadow border-radius-md text-center me-2 d-flex align-items-center justify-content-center {{ request()->routeIs('categories.*') ? 'bg-gradient-primary' : 'bg-white' }}">
+              <i class="fas fa-tags {{ request()->routeIs('categories.*') ? 'text-white' : 'text-dark' }} text-xs"></i>
+            </div>
+            <span class="nav-link-text ms-1">Kategori</span>
+          </a>
+        </li>
 
-      <li class="nav-item">
-        <a class="nav-link {{ request()->routeIs('items.*') ? 'active' : '' }}" href="{{ route('items.index') }}">
-          <div class="icon icon-shape icon-sm shadow border-radius-md text-center me-2 d-flex align-items-center justify-content-center {{ request()->routeIs('items.*') ? 'bg-gradient-primary' : 'bg-white' }}">
-            <i class="fas fa-boxes {{ request()->routeIs('items.*') ? 'text-white' : 'text-dark' }} text-xs"></i>
-          </div>
-          <span class="nav-link-text ms-1">Barang</span>
-        </a>
-      </li>
+        <li class="nav-item">
+          <a class="nav-link {{ request()->routeIs('items.*') ? 'active' : '' }}" href="{{ route('items.index') }}">
+            <div class="icon icon-shape icon-sm shadow border-radius-md text-center me-2 d-flex align-items-center justify-content-center {{ request()->routeIs('items.*') ? 'bg-gradient-primary' : 'bg-white' }}">
+              <i class="fas fa-boxes {{ request()->routeIs('items.*') ? 'text-white' : 'text-dark' }} text-xs"></i>
+            </div>
+            <span class="nav-link-text ms-1">Barang</span>
+          </a>
+        </li>
+      @endif
 
-      {{-- <li class="nav-item">
+      {{-- Peminjaman - untuk semua role --}}
+      <li class="nav-item">
         <a class="nav-link {{ request()->routeIs('loans.*') ? 'active' : '' }}" href="{{ route('loans.index') }}">
           <div class="icon icon-shape icon-sm shadow border-radius-md text-center me-2 d-flex align-items-center justify-content-center {{ request()->routeIs('loans.*') ? 'bg-gradient-primary' : 'bg-white' }}">
-            <i class="fas fa-hand-holding-box {{ request()->routeIs('loans.*') ? 'text-white' : 'text-dark' }} text-xs"></i>
+            <i class="fas fa-hand-holding {{ request()->routeIs('loans.*') ? 'text-white' : 'text-dark' }} text-xs"></i>
           </div>
           <span class="nav-link-text ms-1">Peminjaman</span>
         </a>
-      </li> --}}
+      </li>
+
+      @if(Auth::user()->role === 'admin')
+        <li class="nav-item mt-3">
+          <hr class="horizontal dark">
+        </li>
+        <li class="nav-item">
+          <a class="nav-link {{ request()->routeIs('admin.users.index') ? 'active' : '' }}" href="{{ route('admin.users.index') }}">
+            <div class="icon icon-shape icon-sm shadow border-radius-md text-center me-2 d-flex align-items-center justify-content-center {{ request()->routeIs('admin.users.index') ? 'bg-gradient-primary' : 'bg-white' }}">
+              <i class="fas fa-users-cog {{ request()->routeIs('admin.users.index') ? 'text-white' : 'text-dark' }} text-xs"></i>
+            </div>
+            <span class="nav-link-text ms-1">Kelola Pengguna</span>
+          </a>
+        </li>
+      @endif
 
     </ul>
   </div>

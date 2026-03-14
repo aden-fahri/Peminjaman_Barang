@@ -22,12 +22,11 @@ class UserAkses
 
         $user = Auth::user();
 
-        if (!in_array($user->role, $roles)) {
-            // Redirect ke dashboard dengan pesan error
-            return redirect('/dashboard')
-                ->with('error', 'Anda tidak memiliki akses ke halaman tersebut.');
+        foreach ($roles as $role) {
+            if ($user->role === $role) {
+                return $next($request);
+            }
         }
-
-        return $next($request);
+    return redirect('/dashboard')->with('error', 'Akses ditolak');
     }
 }

@@ -25,14 +25,18 @@
 
                     <!-- Logout -->
                     <a href="{{ route('logout') }}"
-                       class="nav-link text-danger fw-bold px-0 d-flex align-items-center"
-                       onclick="event.preventDefault(); 
-                               if(confirm('Yakin ingin logout?')) {
-                                   document.getElementById('logout-form').submit();
-                               }">
+                    class="nav-link text-danger fw-bold px-0 d-flex align-items-center"
+                    onclick="event.preventDefault(); 
+                            if(confirm('Yakin ingin logout?')) {
+                                document.getElementById('logout-form').submit();
+                            }">
                         <i class="fa fa-sign-out-alt me-1"></i>
                         <span class="d-sm-inline d-none">Logout</span>
                     </a>
+
+                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                        @csrf
+                    </form>
                 </li>
             </ul>
         </div>
