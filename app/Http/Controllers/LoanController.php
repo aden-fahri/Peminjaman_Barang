@@ -21,7 +21,7 @@ class LoanController extends Controller
                 ->get();
 
         $myLoans = Loan::where('user_id', Auth::id())
-                    ->with('item')
+                    ->with('Item')
                     ->latest()
                     ->get();
 
@@ -36,16 +36,14 @@ class LoanController extends Controller
     /**
      * Show the form for creating a new resource.
      */
-    public function create($item)
+    public function create(Item $item)
     {
-        $item = Item::findOrFail($item);
-
         if ($item->status !== 'tersedia' || $item->stok_tersedia < 1) {
-            return redirect()->route('loans.index')
-                             ->with('error', 'Barang ini tidak tersedia saat ini.');
-        }
+        return redirect()->route('loans.index')
+                         ->with('error', 'Barang ini tidak tersedia saat ini.');
+    }
 
-        return view('loans.create', compact('item'));
+    return view('loans.create', compact('item'));
     }
 
     /**
@@ -138,7 +136,7 @@ class LoanController extends Controller
         $user = Auth::user();
 
         if ($loan->user_id !== $user->id && !in_array($user->role, ['admin', 'staf'])) {
-            abort(403, 'Anda tidak berhak mengembalikan peminjaman ini.');
+            abort(403);
         }
 
         if ($loan->status !== 'dipinjam') {

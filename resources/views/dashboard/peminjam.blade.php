@@ -12,7 +12,7 @@
                     <p class="text-sm text-secondary mb-0">Overview peminjaman kamu hari ini</p>
                 </div>
                 <a href="{{ route('loans.index') }}" class="btn bg-gradient-primary btn-sm">
-                    <i class="fas fa-plus me-2"></i> Pinjam Barang Baru
+                    <i class="fa-solid fa-plus me-2"></i> Pinjam Barang Baru
                 </a>
             </div>
             <div class="card-body px-0 pb-2">
@@ -21,7 +21,7 @@
                         <div class="card border shadow-xs mb-4">
                             <div class="card-body text-start p-3 w-100">
                                 <div class="icon icon-shape icon-sm bg-gradient-primary shadow text-white mb-3">
-                                    <i class="fas fa-sync-alt text-lg opacity-10"></i>
+                                    <i class="fa-solid fa-rotate text-lg opacity-10"></i>
                                 </div>
                                 <div class="row">
                                     <div class="col-8">
@@ -37,7 +37,7 @@
                         <div class="card border shadow-xs mb-4">
                             <div class="card-body text-start p-3 w-100">
                                 <div class="icon icon-shape icon-sm bg-gradient-warning shadow text-white mb-3">
-                                    <i class="fas fa-clock text-lg opacity-10"></i>
+                                    <i class="fa-solid fa-clock text-lg opacity-10"></i>
                                 </div>
                                 <div class="row">
                                     <div class="col-8">
@@ -53,7 +53,7 @@
                         <div class="card border shadow-xs mb-4">
                             <div class="card-body text-start p-3 w-100">
                                 <div class="icon icon-shape icon-sm bg-gradient-danger shadow text-white mb-3">
-                                    <i class="fas fa-exclamation-triangle text-lg opacity-10"></i>
+                                    <i class="fa-solid fa-triangle-exclamation text-lg opacity-10"></i>
                                 </div>
                                 <div class="row">
                                     <div class="col-8">

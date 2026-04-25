@@ -12,14 +12,14 @@
                     <p class="text-xs text-secondary mb-0">Kelola aset dan stok barang inventaris Anda</p>
                 </div>
                 <a href="{{ route('items.create') }}" class="btn bg-gradient-primary btn-sm mb-0">
-                    <i class="fas fa-plus me-2"></i> Tambah Barang
+                    <i class="fa-solid fa-plus me-2"></i> Tambah Barang
                 </a>
             </div>
 
             <div class="card-body px-0 pt-0 pb-2">
                 @if (session('success'))
                     <div class="alert alert-success alert-dismissible fade show mx-3 mt-3 text-white border-0" role="alert">
-                        <span class="alert-icon"><i class="fas fa-check-circle me-2"></i></span>
+                        <span class="alert-icon"><i class="fa-solid fa-circle-check me-2"></i></span>
                         <span class="alert-text"><strong>Berhasil!</strong> {{ session('success') }}</span>
                         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
@@ -60,7 +60,7 @@
                                                 <img src="{{ Storage::url($item->gambar) }}" class="avatar avatar-sm me-3 border-radius-lg border shadow-sm" alt="{{ $item->nama }}" style="object-fit: cover; width: 40px; height: 40px;">
                                             @else
                                                 <div class="avatar avatar-sm me-3 border-radius-lg bg-gradient-light border d-flex align-items-center justify-content-center">
-                                                    <i class="fas fa-box text-secondary text-xxs"></i>
+                                                    <i class="fa-solid fa-box text-secondary text-xxs"></i>
                                                 </div>
                                             @endif
                                         </div>
@@ -102,12 +102,12 @@
                                                 data-bs-toggle="modal" 
                                                 data-bs-target="#detailModal{{ $item->id }}" 
                                                 title="Detail">
-                                            <i class="fas fa-eye text-lg"></i>
+                                            <i class="fa-solid fa-eye text-lg"></i>
                                         </button>
                                         <a href="{{ route('items.edit', $item) }}" 
                                            class="btn btn-link text-warning p-2 mb-0" 
                                            title="Edit">
-                                            <i class="fas fa-edit text-lg"></i>
+                                            <i class="fa-solid fa-pen-to-square text-lg"></i>
                                         </a>
                                         <form action="{{ route('items.destroy', $item) }}" method="POST" class="d-inline">
                                             @csrf
@@ -115,7 +115,7 @@
                                             <button type="submit" class="btn btn-link text-danger p-2 mb-0" 
                                                     onclick="return confirm('Yakin hapus {{ addslashes($item->nama) }}?')" 
                                                     title="Hapus">
-                                                <i class="fas fa-trash text-lg"></i>
+                                                <i class="fa-solid fa-trash-can text-lg"></i>
                                             </button>
                                         </form>
                                     </div>
@@ -145,7 +145,7 @@
                                                                     <img src="{{ Storage::url($item->gambar) }}" class="w-100 border-radius-lg shadow-lg" alt="{{ $item->nama }}" style="object-fit: cover; min-height: 280px; max-height: 280px;">
                                                                 @else
                                                                     <div class="d-flex align-items-center justify-content-center" style="min-height: 280px;">
-                                                                        <i class="fas fa-box fa-5x text-secondary opacity-2"></i>
+                                                                        <i class="fa-solid fa-box-open fa-5x text-secondary opacity-2"></i>
                                                                     </div>
                                                                 @endif
                                                             </div>
@@ -190,7 +190,7 @@
                                                 <div class="card-footer bg-gray-100 border-radius-lg p-3 d-flex justify-content-end">
                                                     <button type="button" class="btn btn-link text-dark mb-0" data-bs-dismiss="modal">Tutup</button>
                                                     <a href="{{ route('items.edit', $item) }}" class="btn bg-gradient-dark mb-0">
-                                                        <i class="fas fa-edit me-2"></i> Edit Data
+                                                        <i class="fa-solid fa-pen-to-square me-2"></i> Edit Data
                                                     </a>
                                                 </div>
                                             </div>
@@ -202,7 +202,7 @@
                             <tr>
                                 <td colspan="5" class="text-center py-5">
                                     <div class="opacity-3">
-                                        <i class="fas fa-box-open fa-4x mb-3"></i>
+                                        <i class="fa-solid fa-box-open fa-4x mb-3"></i>
                                         <h6 class="text-secondary">Data barang masih kosong</h6>
                                     </div>
                                 </td>

@@ -14,7 +14,7 @@
                         <small class="text-muted">Kelompokkan barang/inventaris berdasarkan kategori</small>
                     </div>
                     <button type="button" class="btn btn-sm btn-primary" data-bs-toggle="modal" data-bs-target="#modalCreate">
-                        <i class="fas fa-plus me-1"></i> Tambah Kategori
+                        <i class="fa-solid fa-plus me-1"></i> Tambah Kategori
                     </button>
                 </div>
 
@@ -66,14 +66,14 @@
                                             <button type="button" class="btn btn-sm btn-outline-warning me-1" 
                                                     data-bs-toggle="modal" 
                                                     data-bs-target="#modalEdit{{ $category->id }}">
-                                                <i class="fas fa-edit"></i>
+                                                <i class="fa-solid fa-pen-to-square"></i>
                                             </button>
                                             <form action="{{ route('categories.destroy', $category) }}" method="POST" class="d-inline">
                                                 @csrf
                                                 @method('DELETE')
                                                 <button type="submit" class="btn btn-sm btn-outline-danger" 
                                                         onclick="return confirm('Hapus kategori {{ addslashes($category->nama) }}?')">
-                                                    <i class="fas fa-trash"></i>
+                                                    <i class="fa-solid fa-trash-can"></i>
                                                 </button>
                                             </form>
                                         </td>
@@ -119,7 +119,7 @@
                                 @empty
                                     <tr>
                                         <td colspan="4" class="text-center py-5 text-muted">
-                                            <i class="fas fa-tags fa-2x mb-3 d-block opacity-50"></i>
+                                            <i class="fa-solid fa-tags fa-2x mb-3 d-block opacity-50"></i>
                                             Belum ada kategori yang tersimpan
                                         </td>
                                     </tr>

@@ -17,7 +17,7 @@
                 <li class="nav-item d-flex align-items-center">
                     <!-- User Info -->
                     <div class="d-flex align-items-center me-3">
-                        <i class="fa fa-user-circle fa-lg me-2 text-secondary"></i>
+                        <i class="fa-solid fa-circle-user fa-lg me-2 text-secondary"></i>
                         <span class="d-sm-inline d-none fw-bold text-dark">
                             {{ Auth::user()?->name ?? 'Pengguna' }}
                         </span>
@@ -30,7 +30,7 @@
                             if(confirm('Yakin ingin logout?')) {
                                 document.getElementById('logout-form').submit();
                             }">
-                        <i class="fa fa-sign-out-alt me-1"></i>
+                        <i class="fa-solid fa-right-from-bracket me-1"></i>
                         <span class="d-sm-inline d-none">Logout</span>
                     </a>
 

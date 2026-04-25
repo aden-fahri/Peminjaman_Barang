@@ -33,7 +33,7 @@
         @php
             $stats = [
                 ['label' => 'Total Barang', 'value' => $totalItems, 'icon' => 'fa-box', 'color' => 'text-primary'],
-                ['label' => 'Sedang Dipinjam', 'value' => $borrowedItems, 'icon' => 'fa-hand-holding-box', 'color' => 'text-info'],
+                ['label' => 'Sedang Dipinjam', 'value' => $borrowedItems, 'icon' => 'fa-hand-holding', 'color' => 'text-info'],
                 ['label' => 'Pending Approval', 'value' => $pendingLoans, 'icon' => 'fa-user-clock', 'color' => 'text-warning'],
                 ['label' => 'Stok Rendah', 'value' => $lowStockItems, 'icon' => 'fa-triangle-exclamation', 'color' => 'text-danger'],
             ];

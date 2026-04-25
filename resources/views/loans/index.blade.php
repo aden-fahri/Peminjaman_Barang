@@ -7,7 +7,7 @@
     {{-- Header Section --}}
     <div class="d-flex align-items-center mb-4">
         <div class="icon icon-shape icon-sm bg-gradient-primary shadow text-white border-radius-sm d-flex align-items-center justify-content-center me-3" style="width: 40px; height: 40px;">
-            <i class="fas fa-hand-holding fa-lg"></i>
+            <i class="fa-solid fa-hand-holding-heart fa-lg"></i>
         </div>
         <div>
             <h4 class="mb-0 font-weight-bolder">Peminjaman Barang</h4>
@@ -19,7 +19,7 @@
     @if ($justApproved)
         <div class="alert alert-success border-0 shadow-sm alert-dismissible fade show text-white mb-4" role="alert" style="background-image: linear-gradient(310deg, #2dce89 0%, #2dcecc 100%);">
             <div class="d-flex align-items-center">
-                <i class="fas fa-check-circle me-3 fa-2x"></i>
+                <i class="fa-solid fa-circle-check me-3 fa-2x"></i>
                 <div>
                     <span class="alert-text"><strong>Peminjaman Disetujui!</strong> Silakan ambil <b>{{ $justApproved->item->nama }}</b>.</span>
                     <p class="text-xs mb-0">Batas pengembalian: {{ $justApproved->tanggal_kembali_rencana->format('d F Y') }}</p>
@@ -62,7 +62,7 @@
                                                 <img src="{{ Storage::url($item->gambar) }}" class="avatar avatar-sm me-3 border-radius-lg" alt="item_img" style="object-fit: cover;">
                                             @else
                                                 <div class="avatar avatar-sm me-3 bg-light border-radius-lg d-flex align-items-center justify-content-center">
-                                                    <i class="fas fa-box text-secondary text-xs"></i>
+                                                    <i class="fa-solid fa-box text-secondary text-xs"></i>
                                                 </div>
                                             @endif
                                         </div>
@@ -79,8 +79,8 @@
                                     <span class="badge badge-sm border border-info text-info">{{ $item->stok_tersedia }} Unit</span>
                                 </td>
                                 <td class="align-middle text-center">
-                                    <a href="{{ route('loans.create', ['itemId' => $item->id]) }}" class="btn btn-link text-primary text-gradient px-3 mb-0 font-weight-bold">
-                                        <i class="fas fa-plus me-2"></i>Pinjam
+                                    <a href="{{ route('loans.create', $item) }}" class="btn btn-link text-primary text-gradient px-3 mb-0 font-weight-bold">
+                                        <i class="fa-solid fa-plus me-2"></i>Pinjam
                                     </a>
                                 </td>
                             </tr>
@@ -145,7 +145,7 @@
                                     @csrf
                                     <button type="submit" class="btn btn-sm bg-gradient-success" 
                                             onclick="return confirm('Yakin ingin mengembalikan {{ addslashes($loan->item->nama) }}?')">
-                                        <i class="fas fa-undo me-1"></i> Kembalikan
+                                        <i class="fa-solid fa-rotate-left me-1"></i> Kembalikan
                                     </button>
                                 </form>
                             @elseif ($loan->status == 'dikembalikan')
@@ -158,7 +158,7 @@
                 @empty
                     <tr>
                         <td colspan="5" class="text-center py-5 text-muted">
-                            <i class="fas fa-history fa-3x mb-3 opacity-50 d-block"></i>
+                            <i class="fa-solid fa-clock-rotate-left fa-3x mb-3 opacity-50 d-block"></i>
                             Belum ada riwayat peminjaman
                         </td>
                     </tr>

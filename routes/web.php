@@ -25,29 +25,26 @@ Route::get('/dashboard', [DashboardController::class, 'index'])
     ->middleware(['auth', 'userAkses:admin,staf,peminjam'])
     ->name('dashboard');
 
-Route::get('/admin-only', function () {
-    return 'Halaman khusus Admin';
-})->middleware(['auth', 'userAkses:admin']);
-
 Route::middleware('userAkses:admin')->group(function () {
     Route::get('/admin/manage-users', [AdminController::class, 'manageUsers'])->name('admin.users.index');
     Route::patch('/admin/manage-users/{id}', [AdminController::class, 'updateRole'])->name('admin.users.updateRole');
     Route::delete('/admin/manage-users/{id}', [AdminController::class, 'destroy'])->name('admin.users.destroy');
 });
 
+// ====================== ADMIN & STAF ONLY ======================
 Route::middleware(['auth', 'userAkses:admin,staf'])->group(function () {
     Route::resource('categories', CategoryController::class);
     Route::resource('items', ItemController::class);
 
-    //loans
     Route::get('/loans/pending', [LoanController::class, 'pending'])->name('loans.pending');
     Route::post('/loans/{loan}/approve', [LoanController::class, 'approve'])->name('loans.approve');
     Route::post('/loans/{loan}/reject', [LoanController::class, 'reject'])->name('loans.reject');
-    Route::post('/loans/{loan}/return', [LoanController::class, 'return'])->name('loans.return');
 });
 
 Route::middleware('auth')->group(function () {
     Route::get('/loans', [LoanController::class, 'index'])->name('loans.index');
-    Route::get('/loans/create/{itemId}', [LoanController::class, 'create'])->name('loans.create');
+    Route::get('/loans/create/{item}', [LoanController::class, 'create'])->name('loans.create');
     Route::post('/loans', [LoanController::class, 'store'])->name('loans.store');
+    Route::post('/loans/{loan}/return', [LoanController::class, 'return'])
+         ->name('loans.return');
 });

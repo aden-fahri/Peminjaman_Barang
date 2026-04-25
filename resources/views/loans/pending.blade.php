@@ -8,7 +8,7 @@
         <div class="card-header pb-0 bg-white">
             <div class="d-flex align-items-center">
                 <div class="icon icon-shape icon-sm bg-gradient-warning shadow text-white me-3 d-flex align-items-center justify-content-center" style="width: 32px; height: 32px; border-radius: 8px;">
-                    <i class="fas fa-clock"></i>
+                    <i class="fa-solid fa-clock"></i>
                 </div>
                 <div>
                     <h5 class="mb-0">Pengajuan Peminjaman Pending</h5>
@@ -29,7 +29,7 @@
             @if ($pendingLoans->isEmpty())
                 <div class="text-center py-5">
                     <div class="mb-3">
-                        <i class="fas fa-check-circle fa-4x text-light"></i>
+                        <i class="fa-solid fa-circle-check fa-4x text-light"></i>
                     </div>
                     <h6 class="text-secondary opacity-7">Semua beres! Tidak ada antrean pengajuan saat ini.</h6>
                 </div>
@@ -63,13 +63,13 @@
                                     <td class="align-middle text-center">
                                         <span class="text-secondary text-xs font-weight-bold">
                                             {{ $loan->tanggal_pinjam->format('d/m/Y') }} 
-                                            <i class="fas fa-arrow-right mx-1 text-xxs"></i> 
+                                            <i class="fa-solid fa-arrow-right mx-1 text-xxs"></i> 
                                             {{ $loan->tanggal_kembali_rencana->format('d/m/Y') }}
                                         </span>
                                     </td>
                                     <td>
-                                        <p class="text-xs mb-0"><i class="fas fa-phone text-xxs me-1"></i> {{ $loan->no_telepon }}</p>
-                                        <p class="text-xs text-secondary mb-0"><i class="fas fa-map-marker-alt text-xxs me-1"></i> {{ Str::limit($loan->alamat_peminjam ?? 'Ambil di tempat', 30) }}</p>
+                                        <p class="text-xs mb-0"><i class="fa-solid fa-phone text-xxs me-1"></i> {{ $loan->no_telepon }}</p>
+                                        <p class="text-xs text-secondary mb-0"><i class="fa-solid fa-location-dot text-xxs me-1"></i> {{ Str::limit($loan->alamat_peminjam ?? 'Ambil di tempat', 30) }}</p>
                                     </td>
                                     <td class="align-middle text-center">
                                         <div class="d-flex justify-content-center gap-2">
@@ -78,7 +78,7 @@
                                                   onsubmit="return confirm('Setujui peminjaman {{ $loan->item->nama }} untuk {{ $loan->user->name }}?')">
                                                 @csrf
                                                 <button type="submit" class="btn btn-sm bg-gradient-success mb-0 py-1 px-3">
-                                                    <i class="fas fa-check me-1"></i> Setuju
+                                                    <i class="fa-solid fa-check me-1"></i> Setuju
                                                 </button>
                                             </form>
 
@@ -87,7 +87,7 @@
                                                   onsubmit="return confirm('Apakah Anda yakin ingin menolak pengajuan ini?')">
                                                 @csrf
                                                 <button type="submit" class="btn btn-sm btn-outline-danger mb-0 py-1 px-3">
-                                                    <i class="fas fa-times me-1"></i> Tolak
+                                                    <i class="fa-solid fa-xmark me-1"></i> Tolak
                                                 </button>
                                             </form>
                                         </div>
